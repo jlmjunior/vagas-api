@@ -105,6 +105,14 @@ namespace Projeto.Controllers
                     {
                         var appUser = await _userManager.Users.FirstOrDefaultAsync(u => u.NormalizedUserName == user.UserName.ToUpper());
 
+                        var refreshToken = Guid.NewGuid().ToString();
+
+                        Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions() 
+                        {
+                            HttpOnly = true,
+                            Secure = true
+                        });
+
                         return Ok(new
                         {
                             token = _tokenService.GenerateToken(appUser).Result,
