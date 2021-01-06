@@ -102,7 +102,7 @@ namespace Projeto
 
             //app.UseCookiePolicy();
 
-            app.UseCors(x => x.SetIsOriginAllowed(origin => true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+            app.UseCors(x => x.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
             app.UseAuthentication();
 

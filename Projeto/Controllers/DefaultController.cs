@@ -108,14 +108,12 @@ namespace Projeto.Controllers
 
                         var refreshToken = Guid.NewGuid().ToString();
 
-                        var teste = Request.Cookies;
-
                         Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions()
                         {
                             HttpOnly = true,
-                            Domain = "127.0.0.1",
+                            Domain = "",
                             Path = "/",
-                            SameSite = SameSiteMode.Lax
+                            SameSite = SameSiteMode.Strict
                         });
 
                         return Ok(new
