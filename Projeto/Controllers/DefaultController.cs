@@ -6,6 +6,7 @@ using Email;
 using Email.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -107,10 +108,14 @@ namespace Projeto.Controllers
 
                         var refreshToken = Guid.NewGuid().ToString();
 
-                        Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions() 
+                        var teste = Request.Cookies;
+
+                        Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions()
                         {
                             HttpOnly = true,
-                            Secure = true
+                            Domain = "127.0.0.1",
+                            Path = "/",
+                            SameSite = SameSiteMode.Lax
                         });
 
                         return Ok(new
