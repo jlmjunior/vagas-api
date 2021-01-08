@@ -128,9 +128,16 @@ namespace Projeto.Controllers
             }
             catch (Exception ex)
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"ERROR {ex.Message}");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"ERROR {ex.Message}");
             }
         }
+
+        [HttpGet("Update")]
+        public async Task<IActionResult> UpdateToken()
+        {
+            return Unauthorized();
+        }
+
 
         public async Task<IActionResult> ConfirmEmailAddress(string token, string email)
         {
