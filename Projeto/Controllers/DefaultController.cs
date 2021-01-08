@@ -160,27 +160,6 @@ namespace Projeto.Controllers
             return Unauthorized();
         }
 
-        //[HttpPost]
-        //[Route("login")]
-        //[AllowAnonymous]
-        //public async Task<ActionResult<dynamic>> Authenticate([FromBody]UserModel model)
-        //{
-        //    var user = UserRepository.GetUser(model.username, model.password);
-
-        //    if (user == null)
-        //        return NotFound(new { message = "Usuário ou senha inválidos" });
-
-        //    var token = TokenService.GenerateToken(user);
-
-        //    user.password = string.Empty;
-
-        //    return new
-        //    {
-        //        user = user,
-        //        token = $"Bearer {token}"
-        //    };
-        //}
-
         [HttpGet("Authenticated")]
         [Authorize]
         public string Authenticated() => $"Autenticado {_userManager.GetUserId(User)}";
