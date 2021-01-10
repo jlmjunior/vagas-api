@@ -138,7 +138,6 @@ namespace Projeto.Controllers
             return Unauthorized();
         }
 
-
         public async Task<IActionResult> ConfirmEmailAddress(string token, string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
