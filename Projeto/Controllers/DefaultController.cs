@@ -74,7 +74,7 @@ namespace Projeto.Controllers
                         //if (!emailResult.Success)
                         //    return BadRequest(emailResult.Message);
 
-                        return Ok(new { result = $"200" });
+                        return Ok(new { result = $"Success" });
                     }
                     else
                     {
