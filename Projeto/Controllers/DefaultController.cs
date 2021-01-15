@@ -132,11 +132,11 @@ namespace Projeto.Controllers
             }
         }
 
-        [HttpGet("Update")]
-        public async Task<IActionResult> UpdateToken()
-        {
-            return Unauthorized();
-        }
+        //[HttpGet("Update")]
+        //public async Task<IActionResult> UpdateToken()
+        //{
+        //    return Unauthorized();
+        //}
 
         public async Task<IActionResult> ConfirmEmailAddress(string token, string email)
         {
