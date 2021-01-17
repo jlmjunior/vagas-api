@@ -159,9 +159,9 @@ namespace Projeto.Controllers
             return Unauthorized();
         }
 
-        [HttpGet("Authenticated")]
-        [Authorize]
-        public string Authenticated() => $"Autenticado {_userManager.GetUserId(User)}";
+        //[HttpGet("Authenticated")]
+        //[Authorize]
+        //public string Authenticated() => $"Autenticado {_userManager.GetUserId(User)}";
 
         [HttpGet("Vagas")]
         [Authorize]
